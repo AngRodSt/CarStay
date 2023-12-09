@@ -25,6 +25,8 @@ namespace CarStay
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+            CARSTAY car = new CARSTAY();
+            car.Show();
         }
     }
 }
