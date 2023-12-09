@@ -16,7 +16,7 @@ namespace CarStay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new DISEÑO2());
+            Application.Run(new CARSTAY());
         }
     }
 }

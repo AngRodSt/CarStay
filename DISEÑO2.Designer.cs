@@ -1,6 +1,6 @@
 ﻿namespace CarStay
 {
-    partial class DISEÑO2
+    partial class CARSTAY
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DISEÑO2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CARSTAY));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnvehiculo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -110,10 +110,13 @@
             this.button4.TabIndex = 5;
             this.button4.Text = "SALIR";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.btnvehiculo);
             this.panel1.Controls.Add(this.button3);
@@ -123,7 +126,7 @@
             this.panel1.Size = new System.Drawing.Size(612, 108);
             this.panel1.TabIndex = 6;
             // 
-            // DISEÑO2
+            // CARSTAY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -134,10 +137,10 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox1);
-            this.Name = "DISEÑO2";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "CARSTAY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DISEÑO2";
-            this.WindowState = System.Windows.Forms.FormWindowState.Minimized;
+            this.Text = "CARSTAY";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
