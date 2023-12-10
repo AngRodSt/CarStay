@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CARSTAY));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnvehiculo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btnCliente = new System.Windows.Forms.Button();
+            this.btnUsuario = new System.Windows.Forms.Button();
+            this.btnTransaccion = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -44,9 +44,10 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(-33, 1);
+            this.pictureBox1.Location = new System.Drawing.Point(-55, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(230, 131);
+            this.pictureBox1.Size = new System.Drawing.Size(383, 202);
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -55,58 +56,65 @@
             this.btnvehiculo.BackColor = System.Drawing.SystemColors.Control;
             this.btnvehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnvehiculo.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnvehiculo.Location = new System.Drawing.Point(15, 26);
+            this.btnvehiculo.Location = new System.Drawing.Point(25, 40);
+            this.btnvehiculo.Margin = new System.Windows.Forms.Padding(5);
             this.btnvehiculo.Name = "btnvehiculo";
-            this.btnvehiculo.Size = new System.Drawing.Size(138, 59);
+            this.btnvehiculo.Size = new System.Drawing.Size(230, 91);
             this.btnvehiculo.TabIndex = 1;
             this.btnvehiculo.Text = "VEHICULOS";
             this.btnvehiculo.UseVisualStyleBackColor = false;
             this.btnvehiculo.Click += new System.EventHandler(this.button1_Click);
+            this.btnvehiculo.MouseLeave += new System.EventHandler(this.btnvehiculo_MouseLeave);
+            this.btnvehiculo.MouseHover += new System.EventHandler(this.btnvehiculo_MouseEnter);
             // 
-            // button1
+            // btnCliente
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(159, 26);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(138, 59);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "CLIENTES";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCliente.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCliente.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCliente.Location = new System.Drawing.Point(265, 40);
+            this.btnCliente.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCliente.Name = "btnCliente";
+            this.btnCliente.Size = new System.Drawing.Size(230, 91);
+            this.btnCliente.TabIndex = 2;
+            this.btnCliente.Text = "CLIENTES";
+            this.btnCliente.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btnUsuario
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(303, 26);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(138, 59);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "USUARIO";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnUsuario.BackColor = System.Drawing.SystemColors.Control;
+            this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnUsuario.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuario.Location = new System.Drawing.Point(505, 40);
+            this.btnUsuario.Margin = new System.Windows.Forms.Padding(5);
+            this.btnUsuario.Name = "btnUsuario";
+            this.btnUsuario.Size = new System.Drawing.Size(230, 91);
+            this.btnUsuario.TabIndex = 3;
+            this.btnUsuario.Text = "USUARIO";
+            this.btnUsuario.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btnTransaccion
             // 
-            this.button3.BackColor = System.Drawing.SystemColors.Control;
-            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button3.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(447, 26);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(153, 59);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "TRANSACCIONES";
-            this.button3.UseVisualStyleBackColor = false;
+            this.btnTransaccion.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTransaccion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTransaccion.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransaccion.Location = new System.Drawing.Point(745, 40);
+            this.btnTransaccion.Margin = new System.Windows.Forms.Padding(5);
+            this.btnTransaccion.Name = "btnTransaccion";
+            this.btnTransaccion.Size = new System.Drawing.Size(255, 91);
+            this.btnTransaccion.TabIndex = 4;
+            this.btnTransaccion.Text = "TRANSACCIONES";
+            this.btnTransaccion.UseVisualStyleBackColor = false;
             // 
             // button4
             // 
             this.button4.BackColor = System.Drawing.SystemColors.Control;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button4.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(486, 12);
+            this.button4.Location = new System.Drawing.Point(810, 18);
+            this.button4.Margin = new System.Windows.Forms.Padding(5);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(111, 28);
+            this.button4.Size = new System.Drawing.Size(185, 43);
             this.button4.TabIndex = 5;
             this.button4.Text = "SALIR";
             this.button4.UseVisualStyleBackColor = false;
@@ -117,27 +125,29 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.btnUsuario);
             this.panel1.Controls.Add(this.btnvehiculo);
-            this.panel1.Controls.Add(this.button3);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Location = new System.Drawing.Point(-3, 488);
+            this.panel1.Controls.Add(this.btnTransaccion);
+            this.panel1.Controls.Add(this.btnCliente);
+            this.panel1.Location = new System.Drawing.Point(-5, 751);
+            this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(612, 108);
+            this.panel1.Size = new System.Drawing.Size(1020, 166);
             this.panel1.TabIndex = 6;
             // 
             // CARSTAY
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(609, 596);
+            this.ClientSize = new System.Drawing.Size(1015, 917);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "CARSTAY";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CARSTAY";
@@ -151,9 +161,9 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnvehiculo;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button btnCliente;
+        private System.Windows.Forms.Button btnUsuario;
+        private System.Windows.Forms.Button btnTransaccion;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
     }
