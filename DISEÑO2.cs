@@ -31,6 +31,23 @@ namespace CarStay
         private void button4_Click(object sender, EventArgs e)
         {
             this.Close();
+            TipoInicio tipoInicio = new TipoInicio();
+            tipoInicio.Close();
+        }
+
+        private void btnvehiculo_MouseEnter(object sender, EventArgs e)
+        {
+            // btnvehiculo.BackgroundImage=Image.FromFile(@"C:\Users\AngRod\source\repos\CarStay\imagenes\7627292.jpg");
+            // btnvehiculo.BackgroundImageLayout=ImageLayout.Stretch;
+            btnvehiculo.BackColor = Color.LightCoral;
+            btnvehiculo.ForeColor = System.Drawing.Color.White;
+        }
+
+        private void btnvehiculo_MouseLeave(object sender, EventArgs e)
+        {
+            btnvehiculo.BackColor = SystemColors.Control;
+            btnvehiculo.BackgroundImage = null;
+            btnvehiculo.ForeColor= System.Drawing.Color.Black;
         }
     }
 }
