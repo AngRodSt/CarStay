@@ -28,5 +28,12 @@ namespace CarStay
             CARSTAY car = new CARSTAY();
             car.Show();
         }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Modificaciones mod = new Modificaciones();
+            mod.Show();
+            this.Hide();
+        }
     }
 }

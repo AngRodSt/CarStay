@@ -64,6 +64,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Conexion.cs" />
     <Compile Include="DISEÑO2.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +82,12 @@
     </Compile>
     <Compile Include="LoginProv.Designer.cs">
       <DependentUpon>LoginProv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modificaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modificaciones.Designer.cs">
+      <DependentUpon>Modificaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -104,6 +111,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LoginProv.resx">
       <DependentUpon>LoginProv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modificaciones.resx">
+      <DependentUpon>Modificaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

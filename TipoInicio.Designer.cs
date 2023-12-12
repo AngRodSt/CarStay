@@ -29,45 +29,49 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TipoInicio));
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnCLiente = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
             this.btnProvedor = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // button2
+            // btnCLiente
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button2.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(202, 621);
-            this.button2.Margin = new System.Windows.Forms.Padding(5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(358, 69);
-            this.button2.TabIndex = 13;
-            this.button2.Text = "CLIENTE";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnCLiente.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCLiente.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCLiente.BackgroundImage")));
+            this.btnCLiente.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCLiente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCLiente.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCLiente.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnCLiente.Location = new System.Drawing.Point(202, 621);
+            this.btnCLiente.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCLiente.Name = "btnCLiente";
+            this.btnCLiente.Size = new System.Drawing.Size(358, 69);
+            this.btnCLiente.TabIndex = 13;
+            this.btnCLiente.Text = "CLIENTE";
+            this.btnCLiente.UseVisualStyleBackColor = false;
+            this.btnCLiente.MouseEnter += new System.EventHandler(this.btnCLiente_MouseEnter);
+            this.btnCLiente.MouseLeave += new System.EventHandler(this.btnCLiente_MouseLeave);
             // 
-            // button1
+            // btnSalir
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button1.Location = new System.Drawing.Point(544, 81);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(202, 45);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "SALIR";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalir.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSalir.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnSalir.BackgroundImage")));
+            this.btnSalir.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnSalir.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnSalir.Location = new System.Drawing.Point(544, 81);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(5);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(202, 45);
+            this.btnSalir.TabIndex = 12;
+            this.btnSalir.Text = "SALIR";
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.button1_Click);
+            this.btnSalir.MouseEnter += new System.EventHandler(this.btnSalir_MouseEnter);
+            this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
             // 
             // btnProvedor
             // 
@@ -85,6 +89,8 @@
             this.btnProvedor.Text = "PROVEEDOR";
             this.btnProvedor.UseVisualStyleBackColor = false;
             this.btnProvedor.Click += new System.EventHandler(this.btnProvedor_Click);
+            this.btnProvedor.MouseEnter += new System.EventHandler(this.btnProvedor_MouseEnter);
+            this.btnProvedor.MouseLeave += new System.EventHandler(this.btnProvedor_MouseLeave);
             // 
             // pictureBox1
             // 
@@ -102,8 +108,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(786, 753);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnCLiente);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnProvedor);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -117,8 +123,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnCLiente;
+        private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnProvedor;
         private System.Windows.Forms.PictureBox pictureBox1;
     }
