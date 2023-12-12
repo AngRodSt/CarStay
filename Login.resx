@@ -6879,7 +6879,7 @@
         AooxRQB//9k=
 </value>
   </data>
-  <data name="button1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnAtras.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/4QBKRXhpZgAATU0AKgAAAAgAAYKYAAIAAAAnAAAAGgAAAABGcmVl
         cGlrIENvbXBhbnkgUy5MLiAtIHd3dy5mcmVlcGlrLmNvbQAA/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwL
@@ -12614,7 +12614,7 @@
         AooxRQB//9k=
 </value>
   </data>
-  <data name="button2.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnRegistrar.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         /9j/4AAQSkZJRgABAQEAAAAAAAD/4QBKRXhpZgAATU0AKgAAAAgAAYKYAAIAAAAnAAAAGgAAAABGcmVl
         cGlrIENvbXBhbnkgUy5MLiAtIHd3dy5mcmVlcGlrLmNvbQAA/9sAQwAIBgYHBgUIBwcHCQkICgwUDQwL
