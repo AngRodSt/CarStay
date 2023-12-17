@@ -36,12 +36,12 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Label3 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
             this.Label2 = new System.Windows.Forms.Label();
-            this.Matricula = new System.Windows.Forms.TextBox();
+            this.txtmatricula = new System.Windows.Forms.TextBox();
             this.Label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtID = new System.Windows.Forms.TextBox();
             this.txtColor = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.cbEstado = new System.Windows.Forms.ComboBox();
@@ -61,14 +61,15 @@
             this.label5 = new System.Windows.Forms.Label();
             this.txtMotor = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvModif = new System.Windows.Forms.DataGridView();
             this.btnAtras = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.txtYear = new System.Windows.Forms.TextBox();
+            this.txtSup = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PicFoto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModif)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSeleccionar
@@ -108,6 +109,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBorrar
             // 
@@ -153,19 +155,9 @@
             this.Label3.Location = new System.Drawing.Point(26, 33);
             this.Label3.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(39, 37);
+            this.Label3.Size = new System.Drawing.Size(88, 37);
             this.Label3.TabIndex = 214;
-            this.Label3.Text = "ID";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(164, 31);
-            this.txtID.Margin = new System.Windows.Forms.Padding(5);
-            this.txtID.Name = "txtID";
-            this.txtID.ReadOnly = true;
-            this.txtID.Size = new System.Drawing.Size(111, 27);
-            this.txtID.TabIndex = 213;
-            this.txtID.Text = "0";
+            this.Label3.Text = "Codigo";
             // 
             // Label2
             // 
@@ -178,13 +170,13 @@
             this.Label2.TabIndex = 212;
             this.Label2.Text = "Matricula:";
             // 
-            // Matricula
+            // txtmatricula
             // 
-            this.Matricula.Location = new System.Drawing.Point(164, 161);
-            this.Matricula.Margin = new System.Windows.Forms.Padding(5);
-            this.Matricula.Name = "Matricula";
-            this.Matricula.Size = new System.Drawing.Size(459, 27);
-            this.Matricula.TabIndex = 211;
+            this.txtmatricula.Location = new System.Drawing.Point(164, 161);
+            this.txtmatricula.Margin = new System.Windows.Forms.Padding(5);
+            this.txtmatricula.Name = "txtmatricula";
+            this.txtmatricula.Size = new System.Drawing.Size(459, 27);
+            this.txtmatricula.TabIndex = 211;
             // 
             // Label4
             // 
@@ -214,6 +206,7 @@
             // panel1
             // 
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.panel1.Controls.Add(this.txtID);
             this.panel1.Controls.Add(this.txtColor);
             this.panel1.Controls.Add(this.label13);
             this.panel1.Controls.Add(this.cbEstado);
@@ -235,13 +228,20 @@
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.Label4);
             this.panel1.Controls.Add(this.Label3);
-            this.panel1.Controls.Add(this.Matricula);
-            this.panel1.Controls.Add(this.txtID);
+            this.panel1.Controls.Add(this.txtmatricula);
             this.panel1.Controls.Add(this.Label2);
             this.panel1.Location = new System.Drawing.Point(-5, 194);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1176, 336);
             this.panel1.TabIndex = 216;
+            // 
+            // txtID
+            // 
+            this.txtID.Location = new System.Drawing.Point(164, 33);
+            this.txtID.Margin = new System.Windows.Forms.Padding(5);
+            this.txtID.Name = "txtID";
+            this.txtID.Size = new System.Drawing.Size(111, 27);
+            this.txtID.TabIndex = 238;
             // 
             // txtColor
             // 
@@ -282,6 +282,7 @@
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label12
             // 
@@ -427,15 +428,15 @@
             this.label7.TabIndex = 218;
             this.label7.Text = "Motor:";
             // 
-            // dataGridView1
+            // dgvModif
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 636);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 66;
-            this.dataGridView1.RowTemplate.Height = 29;
-            this.dataGridView1.Size = new System.Drawing.Size(1503, 321);
-            this.dataGridView1.TabIndex = 217;
+            this.dgvModif.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvModif.Location = new System.Drawing.Point(13, 636);
+            this.dgvModif.Name = "dgvModif";
+            this.dgvModif.RowHeadersWidth = 66;
+            this.dgvModif.RowTemplate.Height = 29;
+            this.dgvModif.Size = new System.Drawing.Size(1503, 321);
+            this.dgvModif.TabIndex = 217;
             // 
             // btnAtras
             // 
@@ -449,6 +450,7 @@
             this.btnAtras.TabIndex = 218;
             this.btnAtras.Text = "ATRAS";
             this.btnAtras.UseVisualStyleBackColor = false;
+            this.btnAtras.Click += new System.EventHandler(this.btnAtras_Click);
             // 
             // btnSalir
             // 
@@ -472,6 +474,15 @@
             this.txtYear.Size = new System.Drawing.Size(124, 27);
             this.txtYear.TabIndex = 237;
             // 
+            // txtSup
+            // 
+            this.txtSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.15584F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSup.Location = new System.Drawing.Point(149, 149);
+            this.txtSup.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSup.Name = "txtSup";
+            this.txtSup.Size = new System.Drawing.Size(111, 37);
+            this.txtSup.TabIndex = 239;
+            // 
             // Modificaciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -479,10 +490,11 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1528, 983);
+            this.Controls.Add(this.txtSup);
             this.Controls.Add(this.txtYear);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAtras);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvModif);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -500,7 +512,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvModif)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -515,9 +527,8 @@
         internal System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.Label Label3;
-        internal System.Windows.Forms.TextBox txtID;
         internal System.Windows.Forms.Label Label2;
-        internal System.Windows.Forms.TextBox Matricula;
+        internal System.Windows.Forms.TextBox txtmatricula;
         internal System.Windows.Forms.Label Label4;
         internal System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
@@ -538,11 +549,13 @@
         internal System.Windows.Forms.Label label12;
         internal System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.ComboBox cbEstado;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvModif;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Button btnSalir;
         internal System.Windows.Forms.Label label13;
         internal System.Windows.Forms.TextBox txtYear;
         internal System.Windows.Forms.TextBox txtColor;
+        internal System.Windows.Forms.TextBox txtID;
+        internal System.Windows.Forms.TextBox txtSup;
     }
 }

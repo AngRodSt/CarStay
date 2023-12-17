@@ -12,14 +12,18 @@ namespace CarStay
 {
     public partial class CARSTAY : Form
     {
-        public CARSTAY()
+        public int idsuplidor;
+        public CARSTAY() { InitializeComponent(); }
+        public CARSTAY(int idSuplidor)
         {
             InitializeComponent();
             btnvehiculo.FlatAppearance.BorderSize = 10;
             btnvehiculo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(0, 15, 255, 255);
-
-
+            this.idsuplidor = idSuplidor;
+            txtSup.Text = idsuplidor.ToString();
+            
         }
+
         //FUNCION PARA QUE LOS BOTONES CAMBIEN DE COLOR AL PASARLE EL MOUSE POR ENCIMA
         public void Marcar(Button button)
         {
@@ -35,8 +39,8 @@ namespace CarStay
         //AL HACER CLICK EN VEHICULO SE ABRA EL APARTADO
         private void btnvehiculo_Click(object sender, EventArgs e)
         {
-            Vehiculo vehiculo = new Vehiculo();
-            vehiculo.Show();
+            Vehiculo ver = new Vehiculo(idsuplidor);
+            ver.Show();
             this.Hide();
         }
         //SALIR DEL FORM

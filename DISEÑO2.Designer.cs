@@ -36,6 +36,7 @@
             this.btnTransaccion = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSup = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -143,6 +144,17 @@
             this.panel1.Size = new System.Drawing.Size(1020, 166);
             this.panel1.TabIndex = 6;
             // 
+            // txtSup
+            // 
+            this.txtSup.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSup.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.15584F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSup.Location = new System.Drawing.Point(729, 28);
+            this.txtSup.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSup.Name = "txtSup";
+            this.txtSup.Size = new System.Drawing.Size(69, 30);
+            this.txtSup.TabIndex = 240;
+            // 
             // CARSTAY
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -151,6 +163,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1015, 917);
+            this.Controls.Add(this.txtSup);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.pictureBox1);
@@ -162,6 +175,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -174,5 +188,6 @@
         private System.Windows.Forms.Button btnTransaccion;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.TextBox txtSup;
     }
 }
