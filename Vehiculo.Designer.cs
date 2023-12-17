@@ -29,30 +29,32 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vehiculo));
-            this.btnvehiculo = new System.Windows.Forms.Button();
+            this.btnCatalogo = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtSup = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnvehiculo
+            // btnCatalogo
             // 
-            this.btnvehiculo.BackColor = System.Drawing.SystemColors.Control;
-            this.btnvehiculo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnvehiculo.BackgroundImage")));
-            this.btnvehiculo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnvehiculo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnvehiculo.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnvehiculo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnvehiculo.Location = new System.Drawing.Point(32, 14);
-            this.btnvehiculo.Margin = new System.Windows.Forms.Padding(5);
-            this.btnvehiculo.Name = "btnvehiculo";
-            this.btnvehiculo.Size = new System.Drawing.Size(230, 91);
-            this.btnvehiculo.TabIndex = 2;
-            this.btnvehiculo.Text = "CATALOGO";
-            this.btnvehiculo.UseVisualStyleBackColor = false;
+            this.btnCatalogo.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCatalogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("btnCatalogo.BackgroundImage")));
+            this.btnCatalogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnCatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnCatalogo.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCatalogo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btnCatalogo.Location = new System.Drawing.Point(32, 14);
+            this.btnCatalogo.Margin = new System.Windows.Forms.Padding(5);
+            this.btnCatalogo.Name = "btnCatalogo";
+            this.btnCatalogo.Size = new System.Drawing.Size(230, 91);
+            this.btnCatalogo.TabIndex = 2;
+            this.btnCatalogo.Text = "CATALOGO";
+            this.btnCatalogo.UseVisualStyleBackColor = false;
+            this.btnCatalogo.Click += new System.EventHandler(this.btnCatalogo_Click);
             // 
             // button1
             // 
@@ -124,7 +126,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Controls.Add(this.btnAtras);
-            this.panel1.Controls.Add(this.btnvehiculo);
+            this.panel1.Controls.Add(this.btnCatalogo);
             this.panel1.Controls.Add(this.btnModificar);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
@@ -134,6 +136,17 @@
             this.panel1.Size = new System.Drawing.Size(283, 931);
             this.panel1.TabIndex = 7;
             // 
+            // txtSup
+            // 
+            this.txtSup.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.txtSup.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSup.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.15584F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSup.Location = new System.Drawing.Point(1198, 38);
+            this.txtSup.Margin = new System.Windows.Forms.Padding(5);
+            this.txtSup.Name = "txtSup";
+            this.txtSup.Size = new System.Drawing.Size(69, 30);
+            this.txtSup.TabIndex = 241;
+            // 
             // Vehiculo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
@@ -141,6 +154,7 @@
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1607, 1006);
+            this.Controls.Add(this.txtSup);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -150,16 +164,18 @@
             this.Load += new System.EventHandler(this.Vehiculo_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button btnvehiculo;
+        private System.Windows.Forms.Button btnCatalogo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAtras;
         private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.TextBox txtSup;
     }
 }

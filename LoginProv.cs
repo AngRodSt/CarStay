@@ -24,6 +24,8 @@ namespace CarStay
             conn = new MySqlConnection(cadena);
             
         }
+        public int idSuplidor;
+      
         public void Marcar(Button button)
         {
             button.BackColor = Color.LightCoral;
@@ -56,11 +58,13 @@ namespace CarStay
                
                 if (resultado != null)
                 {
-                    int idSuplidor = Convert.ToInt32(resultado);
-                    CARSTAY menuP = new CARSTAY();
-                    menuP.Show();
+                    idSuplidor = Convert.ToInt32(resultado);
+                    Modificaciones olo = new Modificaciones(idSuplidor);
+                   //olo.Show();
+                    CARSTAY menuP = new CARSTAY(idSuplidor);
+                   menuP.Show();
                     this.Hide();
-                    Modificaciones mod = new Modificaciones(idSuplidor);
+                    
                 }
                 else
                 {
