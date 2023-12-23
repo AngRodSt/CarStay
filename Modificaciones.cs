@@ -120,8 +120,6 @@ namespace CarStay
                     RellenarCB(cbCilindros, cilindros);
                     RellenarCB(cbCapacidad, capacidad);
                     RellenarCB(cbEstado, estado);
-                    cargarDatos();
-
                 } ;
             }
             catch(Exception ex)
@@ -129,7 +127,7 @@ namespace CarStay
                Console.WriteLine("Error"+ ex.Message);
             }
             conn.Close();
-
+            cargarDatos();
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

@@ -16,7 +16,7 @@ namespace CarStay
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginProv());
+            Application.Run(new TipoInicio());
             
         }
     }
