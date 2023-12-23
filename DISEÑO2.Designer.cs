@@ -31,9 +31,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CARSTAY));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnvehiculo = new System.Windows.Forms.Button();
-            this.btnCliente = new System.Windows.Forms.Button();
+            this.btnPedidos = new System.Windows.Forms.Button();
+            this.btnTransacciones = new System.Windows.Forms.Button();
             this.btnUsuario = new System.Windows.Forms.Button();
-            this.btnTransaccion = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtSup = new System.Windows.Forms.TextBox();
@@ -68,50 +68,49 @@
             this.btnvehiculo.MouseLeave += new System.EventHandler(this.btnvehiculo_MouseLeave);
             this.btnvehiculo.MouseHover += new System.EventHandler(this.btnvehiculo_MouseEnter);
             // 
-            // btnCliente
+            // btnPedidos
             // 
-            this.btnCliente.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnCliente.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCliente.Location = new System.Drawing.Point(265, 40);
-            this.btnCliente.Margin = new System.Windows.Forms.Padding(5);
-            this.btnCliente.Name = "btnCliente";
-            this.btnCliente.Size = new System.Drawing.Size(230, 91);
-            this.btnCliente.TabIndex = 2;
-            this.btnCliente.Text = "CLIENTES";
-            this.btnCliente.UseVisualStyleBackColor = false;
-            this.btnCliente.MouseEnter += new System.EventHandler(this.btnCliente_MouseEnter);
-            this.btnCliente.MouseLeave += new System.EventHandler(this.btnCliente_MouseLeave);
+            this.btnPedidos.BackColor = System.Drawing.SystemColors.Control;
+            this.btnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnPedidos.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPedidos.Location = new System.Drawing.Point(265, 40);
+            this.btnPedidos.Margin = new System.Windows.Forms.Padding(5);
+            this.btnPedidos.Name = "btnPedidos";
+            this.btnPedidos.Size = new System.Drawing.Size(230, 91);
+            this.btnPedidos.TabIndex = 2;
+            this.btnPedidos.Text = "PEDIDOS";
+            this.btnPedidos.UseVisualStyleBackColor = false;
+         
+            // 
+            // btnTransacciones
+            // 
+            this.btnTransacciones.BackColor = System.Drawing.SystemColors.Control;
+            this.btnTransacciones.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnTransacciones.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnTransacciones.Location = new System.Drawing.Point(505, 40);
+            this.btnTransacciones.Margin = new System.Windows.Forms.Padding(5);
+            this.btnTransacciones.Name = "btnTransacciones";
+            this.btnTransacciones.Size = new System.Drawing.Size(248, 91);
+            this.btnTransacciones.TabIndex = 3;
+            this.btnTransacciones.Text = "TRANSACCIONES";
+            this.btnTransacciones.UseVisualStyleBackColor = false;
+            this.btnTransacciones.MouseEnter += new System.EventHandler(this.btnUsuario_MouseEnter);
+            this.btnTransacciones.MouseLeave += new System.EventHandler(this.btnUsuario_MouseLeave);
             // 
             // btnUsuario
             // 
             this.btnUsuario.BackColor = System.Drawing.SystemColors.Control;
             this.btnUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnUsuario.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUsuario.Location = new System.Drawing.Point(505, 40);
+            this.btnUsuario.Location = new System.Drawing.Point(771, 40);
             this.btnUsuario.Margin = new System.Windows.Forms.Padding(5);
             this.btnUsuario.Name = "btnUsuario";
-            this.btnUsuario.Size = new System.Drawing.Size(230, 91);
-            this.btnUsuario.TabIndex = 3;
+            this.btnUsuario.Size = new System.Drawing.Size(229, 91);
+            this.btnUsuario.TabIndex = 4;
             this.btnUsuario.Text = "USUARIO";
             this.btnUsuario.UseVisualStyleBackColor = false;
-            this.btnUsuario.MouseEnter += new System.EventHandler(this.btnUsuario_MouseEnter);
-            this.btnUsuario.MouseLeave += new System.EventHandler(this.btnUsuario_MouseLeave);
-            // 
-            // btnTransaccion
-            // 
-            this.btnTransaccion.BackColor = System.Drawing.SystemColors.Control;
-            this.btnTransaccion.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnTransaccion.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTransaccion.Location = new System.Drawing.Point(745, 40);
-            this.btnTransaccion.Margin = new System.Windows.Forms.Padding(5);
-            this.btnTransaccion.Name = "btnTransaccion";
-            this.btnTransaccion.Size = new System.Drawing.Size(255, 91);
-            this.btnTransaccion.TabIndex = 4;
-            this.btnTransaccion.Text = "TRANSACCIONES";
-            this.btnTransaccion.UseVisualStyleBackColor = false;
-            this.btnTransaccion.MouseEnter += new System.EventHandler(this.btnTransaccion_MouseEnter);
-            this.btnTransaccion.MouseLeave += new System.EventHandler(this.btnTransaccion_MouseLeave);
+            this.btnUsuario.MouseEnter += new System.EventHandler(this.btnTransaccion_MouseEnter);
+            this.btnUsuario.MouseLeave += new System.EventHandler(this.btnTransaccion_MouseLeave);
             // 
             // btnSalir
             // 
@@ -134,10 +133,10 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel1.Controls.Add(this.btnUsuario);
+            this.panel1.Controls.Add(this.btnTransacciones);
             this.panel1.Controls.Add(this.btnvehiculo);
-            this.panel1.Controls.Add(this.btnTransaccion);
-            this.panel1.Controls.Add(this.btnCliente);
+            this.panel1.Controls.Add(this.btnUsuario);
+            this.panel1.Controls.Add(this.btnPedidos);
             this.panel1.Location = new System.Drawing.Point(-5, 751);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
             this.panel1.Name = "panel1";
@@ -183,9 +182,9 @@
 
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnvehiculo;
-        private System.Windows.Forms.Button btnCliente;
+        private System.Windows.Forms.Button btnPedidos;
+        private System.Windows.Forms.Button btnTransacciones;
         private System.Windows.Forms.Button btnUsuario;
-        private System.Windows.Forms.Button btnTransaccion;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.TextBox txtSup;

@@ -62,34 +62,34 @@ namespace CarStay
             Desmarcar(btnvehiculo);
         }
 
-        private void btnCliente_MouseEnter(object sender, EventArgs e)
+        private void btnPedidos_MouseEnter(object sender, EventArgs e)
         {
-            Marcar(btnCliente);
+            Marcar(btnPedidos);
         }
 
-        private void btnCliente_MouseLeave(object sender, EventArgs e)
+        private void btnPedidos_MouseLeave(object sender, EventArgs e)
         {
-            Desmarcar(btnCliente);
+            Desmarcar(btnPedidos);
         }
 
         private void btnUsuario_MouseEnter(object sender, EventArgs e)
         {
-            Marcar(btnUsuario);
+            Marcar(btnTransacciones);
         }
 
         private void btnUsuario_MouseLeave(object sender, EventArgs e)
         {
-            Desmarcar(btnUsuario);
+            Desmarcar(btnTransacciones);
         }
 
         private void btnTransaccion_MouseEnter(object sender, EventArgs e)
         {
-            Marcar(btnTransaccion);
+            Marcar(btnUsuario);
         }
 
         private void btnTransaccion_MouseLeave(object sender, EventArgs e)
         {
-            Desmarcar(btnTransaccion);
+            Desmarcar(btnUsuario);
         }
 
         private void btnSalir_MouseEnter(object sender, EventArgs e)
