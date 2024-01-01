@@ -13,22 +13,22 @@ namespace CarStay
 {
     public partial class Modificaciones : Form
     {
-        
+
         MySqlConnection conn;
         string[] estado = { "En uso", "Disponible", "Mantenimiento", "Fuera de Servicio", "Nuevo" };
         string[] capacidad = { "1", "2", "4", "5", "8" };
         string[] cilindros = { "I4", "V6", "V8", "V10", "V12", "V16", "MOTOR ELECTRICO" };
         string[] marca = {"TOYOTA","FORD","CHEVROLET","VOLKSWAGEN","HONDA","MERCEDES-BENZ","BMW",
             "FERRARI","NISSAN","TESLA","AUDI","HYUNDAI","KIA","MEZDA","SUBARU","JEEP","LAND ROVER","JAGUAR","PORSCHE","ACURA","VOLVO","LAMBORGHINI"};
-       
+
         private int idsuplidor;
         public Modificaciones() { InitializeComponent(); }
         public Modificaciones(int idSuplidor)
         {
-            
+
             InitializeComponent();
             Desactivar();
-            Conexion conexion = new Conexion();
+            ConexionW conexion = new ConexionW();
             conexion.conec();
             string cadena = conexion.cadena;
             conn = new MySqlConnection(cadena);
@@ -39,7 +39,7 @@ namespace CarStay
 
         private void RellenarCB(ComboBox cb, string[] cad)
         {
-            for(int i = 0; i < cad.Length; i++)
+            for (int i = 0; i < cad.Length; i++)
             {
                 cb.Items.Add(cad[i]);
             }
@@ -48,7 +48,7 @@ namespace CarStay
         private void Modificaciones_Load(object sender, EventArgs e)
         {
             cargarDatos();
-            RellenarCB(cbMarca,marca);
+            RellenarCB(cbMarca, marca);
             RellenarCB(cbCilindros, cilindros);
             RellenarCB(cbCapacidad, capacidad);
             RellenarCB(cbEstado, estado);
@@ -60,7 +60,7 @@ namespace CarStay
             ofd.Filter = "All files|*.*|Image Files|*.jpg";
             ofd.Title = "Selecciona una imagen";
 
-            if(ofd.ShowDialog()!= DialogResult.Cancel ) 
+            if (ofd.ShowDialog() != DialogResult.Cancel)
             {
                 PicFoto.Image = Image.FromFile(ofd.FileName);
             }
@@ -69,17 +69,18 @@ namespace CarStay
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            
             conn.Open();
-            byte[] imageData=null;
-           try
-           {
-                if(PicFoto.Image != null )
+           
+            byte[] imageData = null;
+            MySqlDataReader reader = null;
+            try
+            {
+                if (PicFoto.Image != null)
                 {
-                    using(MemoryStream ms = new MemoryStream())
+                    using (MemoryStream ms = new MemoryStream())
                     {
                         PicFoto.Image.Save(ms, PicFoto.Image.RawFormat);
-                        imageData = ms.ToArray();   
+                        imageData = ms.ToArray();
                     }
                 }
                 else
@@ -91,43 +92,83 @@ namespace CarStay
                 int suplidor;
                 Int32.TryParse(txtSup.Text, out suplidor);
                 Int32.TryParse(txtID.Text, out codigo);
-                string Guardar = "insert into vehiculo (idvehiculo,idsuplidor,Photo,Marca," +
-                    "Modelo,Matricula,Motor,Cilintros,Capacidad,Color,Kilometraje,Dimensiones,Estado,Year) " +
-                    "value (@codigo,@suplidor,@photo,@marca,@modelo,@matricula,@motor,@cili,@capacidad,@color,@Kilom,@dimensiones,@estado,@year)";
-                using (MySqlCommand comando = new MySqlCommand(Guardar, conn))
+                string cBuscar = "select idvehiculo from vehiculo where idvehiculo= " + codigo + " and idsuplidor= " + suplidor;
+                using (MySqlCommand comando1 = new MySqlCommand(cBuscar, conn)) 
                 {
+                    reader = comando1.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        reader.Close();
+                        string cadUpdate = "update vehiculo set Photo=@photo ,Marca=@marca, Modelo=@modelo" +
+                            ",Matricula=@matricula,Motor=@motor,Cilintros=@cili,Capacidad=@capacidad,Color=@color,Kilometraje=@Kilom,Dimensiones=@dimensiones," +
+                            "Estado=@estado,Year=@year  where idvehiculo=" + codigo + " and idsuplidor= " + suplidor;
+                        using (MySqlCommand comando2 = new MySqlCommand(cadUpdate, conn))
+                        {
+                            comando2.Parameters.Add("@photo", MySqlDbType.LongBlob).Value = imageData;
+                            comando2.Parameters.AddWithValue("@marca", cbMarca.SelectedItem);
+                            comando2.Parameters.AddWithValue("@modelo", txtModelo.Text);
+                            comando2.Parameters.AddWithValue("@matricula", txtmatricula.Text);
+                            comando2.Parameters.AddWithValue("@motor", txtMotor.Text);
+                            comando2.Parameters.AddWithValue("@cili", cbCilindros.SelectedItem);
+                            comando2.Parameters.AddWithValue("@capacidad", cbCapacidad.SelectedItem);
+                            comando2.Parameters.AddWithValue("@color", txtColor.Text);
+                            comando2.Parameters.AddWithValue("@Kilom", txtKilom.Text);
+                            comando2.Parameters.AddWithValue("@dimensiones", txtDimenc.Text);
+                            comando2.Parameters.AddWithValue("@estado", cbEstado.SelectedItem);
+                            comando2.Parameters.AddWithValue("@year", txtYear.Text);
 
-               
-                    comando.Parameters.AddWithValue("@codigo", codigo);
-                    comando.Parameters.Add("@photo",MySqlDbType.LongBlob).Value = imageData;
-                    comando.Parameters.AddWithValue("@suplidor", suplidor);
-                    comando.Parameters.AddWithValue("@marca",cbMarca.SelectedItem);
-                    comando.Parameters.AddWithValue("@modelo", txtModelo.Text);
-                    comando.Parameters.AddWithValue("@matricula", txtmatricula.Text);
-                    comando.Parameters.AddWithValue("@motor",txtMotor.Text);
-                    comando.Parameters.AddWithValue("@cili",cbCilindros.SelectedItem);
-                    comando.Parameters.AddWithValue("@capacidad",cbCapacidad.SelectedItem);
-                    comando.Parameters.AddWithValue("@color",txtColor.Text);
-                    comando.Parameters.AddWithValue("@Kilom",txtKilom.Text);
-                    comando.Parameters.AddWithValue("@dimensiones",txtDimenc.Text);
-                    comando.Parameters.AddWithValue("@estado", cbEstado.SelectedItem);
-                    comando.Parameters.AddWithValue("@year",txtYear.Text);
+                            comando2.ExecuteNonQuery();
+                            MessageBox.Show("Datos Actualizados Exitosamente");
+                        }
+                    }
+                    else
+                    {
+                        reader.Close();
+                        string Guardar = "insert into vehiculo (idvehiculo,idsuplidor,Photo,Marca," +
+                            "Modelo,Matricula,Motor,Cilintros,Capacidad,Color,Kilometraje,Dimensiones,Estado,Year) " +
+                            "value (@codigo,@suplidor,@photo,@marca,@modelo,@matricula,@motor,@cili,@capacidad,@color,@Kilom,@dimensiones,@estado,@year)";
+                        using (MySqlCommand comando = new MySqlCommand(Guardar, conn))
+                        {
 
-                    comando.ExecuteNonQuery();
-                    MessageBox.Show("Datos Guardados Exitosamente");
-                    Limpiar();
-                    RellenarCB(cbMarca, marca);
-                    RellenarCB(cbCilindros, cilindros);
-                    RellenarCB(cbCapacidad, capacidad);
-                    RellenarCB(cbEstado, estado);
-                } ;
+
+                            comando.Parameters.AddWithValue("@codigo", codigo);
+                            comando.Parameters.Add("@photo", MySqlDbType.LongBlob).Value = imageData;
+                            comando.Parameters.AddWithValue("@suplidor", suplidor);
+                            comando.Parameters.AddWithValue("@marca", cbMarca.SelectedItem);
+                            comando.Parameters.AddWithValue("@modelo", txtModelo.Text);
+                            comando.Parameters.AddWithValue("@matricula", txtmatricula.Text);
+                            comando.Parameters.AddWithValue("@motor", txtMotor.Text);
+                            comando.Parameters.AddWithValue("@cili", cbCilindros.SelectedItem);
+                            comando.Parameters.AddWithValue("@capacidad", cbCapacidad.SelectedItem);
+                            comando.Parameters.AddWithValue("@color", txtColor.Text);
+                            comando.Parameters.AddWithValue("@Kilom", txtKilom.Text);
+                            comando.Parameters.AddWithValue("@dimensiones", txtDimenc.Text);
+                            comando.Parameters.AddWithValue("@estado", cbEstado.SelectedItem);
+                            comando.Parameters.AddWithValue("@year", txtYear.Text);
+
+                            comando.ExecuteNonQuery();
+                            MessageBox.Show("Datos Guardados Exitosamente");
+
+                        };
+                    }
+                } ; 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-               Console.WriteLine("Error"+ ex.Message);
+                Console.WriteLine("Error" + ex.Message);
             }
+            Limpiar();
+            RellenarCB(cbMarca, marca);
+            RellenarCB(cbCilindros, cilindros);
+            RellenarCB(cbCapacidad, capacidad);
+            RellenarCB(cbEstado, estado);
+            Desactivar();
             conn.Close();
+
+            
             cargarDatos();
+            
+            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -157,9 +198,9 @@ namespace CarStay
             cbCilindros.Items.Clear();
             cbEstado.Items.Clear();
             txtMotor.Clear();
-            PicFoto.Image= null;
+            PicFoto.Image = Properties.Resources.brands;
 
-            
+
         }
         private void Desactivar()
         {
@@ -196,6 +237,11 @@ namespace CarStay
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             Activar();
+            Limpiar();
+            RellenarCB(cbMarca, marca);
+            RellenarCB(cbCilindros, cilindros);
+            RellenarCB(cbCapacidad, capacidad);
+            RellenarCB(cbEstado, estado);
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

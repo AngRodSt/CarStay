@@ -18,7 +18,7 @@ namespace CarStay
         public LoginProv()
         {
             InitializeComponent();
-            Conexion conect = new Conexion();
+            ConexionW conect = new ConexionW();
             conect.conec();
             string cadena = conect.cadena;
             conn = new MySqlConnection(cadena);
@@ -37,7 +37,7 @@ namespace CarStay
         {
             button.BackColor = SystemColors.Control;
             button.ForeColor = System.Drawing.Color.White;
-            button.BackgroundImage = Image.FromFile(@"C:\Users\AngRod\source\repos\CarStay\imagenes\6222603.jpg");
+            button.BackgroundImage = Properties.Resources._6222603; ;
             button.BackgroundImageLayout = ImageLayout.Stretch;
         }
         private void button1_Click(object sender, EventArgs e)
@@ -104,6 +104,41 @@ namespace CarStay
         private void btnIniciar_MouseLeave(object sender, EventArgs e)
         {
             Desmarcar(btnIniciar);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCont_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtUs_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void LoginProv_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAtras_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
