@@ -23,7 +23,7 @@ namespace CarStay
         public Catalogo(int idSuplidor)
         {
             InitializeComponent();
-            Conexion conexion = new Conexion();
+            ConexionW conexion = new ConexionW();
             conexion.conec();
             string cadena = conexion.cadena;
             conn = new MySqlConnection(cadena);

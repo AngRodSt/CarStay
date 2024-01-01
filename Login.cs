@@ -27,7 +27,7 @@ namespace CarStay
         {
             button.BackColor = SystemColors.Control;
             button.ForeColor = System.Drawing.Color.White;
-            button.BackgroundImage = Image.FromFile(@"C:\Users\AngRod\source\repos\CarStay\imagenes\6222603.jpg");
+           button.BackgroundImage = Properties.Resources._6222603;
             button.BackgroundImageLayout = ImageLayout.Stretch;
         }
         private void button1_Click(object sender, EventArgs e)

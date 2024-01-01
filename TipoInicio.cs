@@ -40,7 +40,7 @@ namespace CarStay
         {
             button.BackColor = SystemColors.Control;
             button.ForeColor = System.Drawing.Color.White;
-            button.BackgroundImage = Image.FromFile(@"C:\Users\AngRod\source\repos\CarStay\imagenes\6222603.jpg");
+            button.BackgroundImage = Properties.Resources._6222603;
             button.BackgroundImageLayout = ImageLayout.Stretch;
         }
         private void btnProvedor_MouseEnter(object sender, EventArgs e)
@@ -72,6 +72,13 @@ namespace CarStay
         private void btnSalir_MouseLeave(object sender, EventArgs e)
         {
             Desmarcar(btnSalir);
+        }
+
+        private void btnCLiente_Click(object sender, EventArgs e)
+        {
+            Ini_RegCliente cliente = new Ini_RegCliente();
+            cliente.Show();
+            this.Hide();
         }
     }
     }
