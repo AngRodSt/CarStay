@@ -153,7 +153,7 @@ namespace CarStay
                        string codigo = fila["idvehiculo"].ToString();
                         DesVehiculo descripcion = new DesVehiculo(codigo);
                         descripcion.Show();
-                        this.Hide();
+                        
                     }
                 }
 
