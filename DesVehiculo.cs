@@ -61,46 +61,68 @@ namespace CarStay
                 Marca.Font = myfont;
                 Marca.Location = new Point(8, 10);
                 Marca.Text = "Marca: " + fila["Marca"].ToString();
+                Marca.AutoSize = false;
+                Marca.Width = 150;
 
                 Modelo.Font = myfont;
                 Modelo.Location = new Point(8, 43);
                 Modelo.Text = "Modelo: " + fila["Modelo"].ToString();
+                Modelo.AutoSize = false;
+                Modelo.Width = 200;
 
                 Matricula.Font = myfont;
                 Matricula.Location = new Point(8, 75);
                 Matricula.Text = "matricula: " + fila["Matricula"].ToString();
+                Matricula.AutoSize = false;
+                Matricula.Width = 150;
 
                 Motor.Font = myfont;
                 Motor.Location = new Point(8, 107);
                 Motor.Text = "Motor: " + fila["Motor"].ToString();
+                Motor.AutoSize = false;
+                Motor.Width = 150;
 
                 Cilindros.Font = myfont;
                 Cilindros.Location = new Point(8, 139);
                 Cilindros.Text = "Cilindros: " + fila["Cilintros"].ToString();
+                Cilindros.AutoSize = false;
+                Cilindros.Width = 150;
 
                 Capacidad.Font = myfont;
                 Capacidad.Location = new Point(8, 171);
                 Capacidad.Text = "Capacidad: " + fila["Capacidad"].ToString();
+                Capacidad.AutoSize = false;
+                Capacidad.Width = 150;
 
                 Color.Font = myfont;
                 Color.Location = new Point(8, 203);
                 Color.Text = "Color: " + fila["Color"].ToString();
+                Color.AutoSize = false;
+                Color.Width = 150;
 
                 Kilometraje.Font = myfont;
                 Kilometraje.Location = new Point(211, 10);
                 Kilometraje.Text = "Kilometraje: " + fila["Kilometraje"].ToString();
+                Kilometraje.AutoSize = false;
+                Kilometraje.Width = 150;
 
                 Dimensiones.Font = myfont;
                 Dimensiones.Location = new Point(211, 43);
                 Dimensiones.Text = "Dimensiones: " + fila["Dimensiones"].ToString();
+                Dimensiones.AutoSize = false;
+                Dimensiones.Width = 200;
 
                 Estado.Font = myfont;
                 Estado.Location = new Point(211, 75);
                 Estado.Text = "Estado: " + fila["Estado"].ToString();
+                Estado.AutoSize = false;
+                Estado.Width = 150;
 
                 Año.Font = myfont;
                 Año.Location = new Point(211, 107);
                 Año.Text = "Año: " + fila["Year"].ToString();
+                Año.AutoSize = false;
+                Año.Width = 150;
 
                 byte[] img = (byte[])fila["Photo"];
                 MemoryStream ms = new MemoryStream(img);
@@ -116,6 +138,7 @@ namespace CarStay
                 alquilar.Width = 175;
                 alquilar.Height = 23;
                 alquilar.BackColor = System.Drawing.Color.LimeGreen;
+                alquilar.Text = "ALQUILAR";
 
                 panel.Controls.Add( alquilar );
                 panel.Controls.Add(Photo);
@@ -134,6 +157,11 @@ namespace CarStay
                 FLP2.Controls.Add(panel);
             }
             conn.Close();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
