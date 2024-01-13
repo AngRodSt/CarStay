@@ -1,36 +1,31 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.Remoting.Contexts;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarStay
 {
     public partial class RegistroCliente : Form
-    {   MySqlConnection conn;
+    {
+        MySqlConnection conn;
         public RegistroCliente()
         {
             InitializeComponent();
-            ConexionW  conect = new ConexionW();
+            Conexion conect = new Conexion();
             conect.conec();
             string cadena = conect.cadena;
             conn = new MySqlConnection(cadena);
         }
         public int idCliente;
-       
+
         private void RegistroCliente_Load(object sender, EventArgs e)
         {
 
         }
         public void Marcar(Button button)
         {
-            button.BackColor = Color.LightCoral;
+            button.BackColor = Color.Navy;
             button.ForeColor = System.Drawing.Color.White;
             button.BackgroundImage = null;
         }
@@ -71,32 +66,36 @@ namespace CarStay
         {
             Desmarcar(btnSalir);
         }
-
+        string cliente;
+        string nombre;
         private void btnIniciar_Click(object sender, EventArgs e)
         {
             conn.Open();
-            string Validar = "Select idcliente from cliente where usuario=@Usuario and password=@Contra";
-            using (MySqlCommand cValidar = new MySqlCommand(Validar, conn))
+
+            string Validar = "Select * from cliente where usuario= @usuario and password=@contrasena";
+            using (MySqlCommand cmd = new MySqlCommand(Validar, conn))
             {
-                cValidar.Parameters.AddWithValue("@Usuario", txtUs.Text);
-                cValidar.Parameters.AddWithValue("@Contra", txtCont.Text);
-                object resultado = cValidar.ExecuteScalar();
-
-
-                if (resultado != null)
+                cmd.Parameters.AddWithValue("@usuario", txtUs.Text);
+                cmd.Parameters.AddWithValue("@contrasena", txtCont.Text);
+                MySqlDataAdapter da = new MySqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                da.Fill(ds);
+                if (ds != null)
                 {
-                    idCliente = Convert.ToInt32(resultado);
-                   
-                    ConsultaCliente bienvenida = new ConsultaCliente();
-                    bienvenida.Show();
-                    this.Close();
+                    foreach (DataRow fila in ds.Tables[0].Rows)
+                    {
+                        cliente = fila["idcliente"].ToString();
+                        nombre = fila["nombre"].ToString();
+                        ConsultaCliente bienvenida = new ConsultaCliente(cliente, nombre);
+                        bienvenida.Show();
+                        this.Close();
 
+                    };
                 }
-                else
-                {
-                    MessageBox.Show("Usuario no encontrado");
-                }
-            };
+                else { MessageBox.Show("Usuario no encontrado"); }
+            }
+
+
 
             conn.Close();
         }
@@ -108,11 +107,11 @@ namespace CarStay
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-            TipoInicio atras = new TipoInicio();
+            Ini_RegCliente atras = new Ini_RegCliente();
             atras.Show();
             this.Close();
         }
 
-       
+
     }
 }

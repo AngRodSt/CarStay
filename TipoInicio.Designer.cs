@@ -44,9 +44,10 @@
             this.btnCLiente.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCLiente.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCLiente.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnCLiente.Location = new System.Drawing.Point(121, 404);
+            this.btnCLiente.Location = new System.Drawing.Point(202, 622);
+            this.btnCLiente.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnCLiente.Name = "btnCLiente";
-            this.btnCLiente.Size = new System.Drawing.Size(215, 45);
+            this.btnCLiente.Size = new System.Drawing.Size(358, 69);
             this.btnCLiente.TabIndex = 13;
             this.btnCLiente.Text = "CLIENTE";
             this.btnCLiente.UseVisualStyleBackColor = false;
@@ -62,9 +63,10 @@
             this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnSalir.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalir.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnSalir.Location = new System.Drawing.Point(326, 53);
+            this.btnSalir.Location = new System.Drawing.Point(543, 82);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(121, 29);
+            this.btnSalir.Size = new System.Drawing.Size(202, 45);
             this.btnSalir.TabIndex = 12;
             this.btnSalir.Text = "SALIR";
             this.btnSalir.UseVisualStyleBackColor = false;
@@ -80,9 +82,10 @@
             this.btnProvedor.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnProvedor.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnProvedor.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.btnProvedor.Location = new System.Drawing.Point(121, 352);
+            this.btnProvedor.Location = new System.Drawing.Point(202, 542);
+            this.btnProvedor.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.btnProvedor.Name = "btnProvedor";
-            this.btnProvedor.Size = new System.Drawing.Size(215, 45);
+            this.btnProvedor.Size = new System.Drawing.Size(358, 69);
             this.btnProvedor.TabIndex = 11;
             this.btnProvedor.Text = "PROVEEDOR";
             this.btnProvedor.UseVisualStyleBackColor = false;
@@ -94,23 +97,24 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Location = new System.Drawing.Point(41, 53);
+            this.pictureBox1.Location = new System.Drawing.Point(68, 82);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(382, 306);
+            this.pictureBox1.Size = new System.Drawing.Size(637, 471);
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
             // 
             // TipoInicio
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 489);
+            this.ClientSize = new System.Drawing.Size(787, 752);
             this.Controls.Add(this.btnCLiente);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnProvedor);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TipoInicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TipoInicio";

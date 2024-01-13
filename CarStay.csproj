@@ -16,16 +16,18 @@
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateEnabled>true</UpdateEnabled>
     <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>7</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <UpdateUrl>http://localhost/CarStay/</UpdateUrl>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -46,6 +48,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>8055751EFED2E9EC3C4F9C62FE7A8FE1D3E078F6</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>CarStay_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data">
@@ -84,6 +98,12 @@
     <Compile Include="ConsultaCliente1.Designer.cs">
       <DependentUpon>ConsultaCliente1.cs</DependentUpon>
     </Compile>
+    <Compile Include="DesCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DesCliente.Designer.cs">
+      <DependentUpon>DesCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="DesVehiculo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +115,18 @@
     </Compile>
     <Compile Include="DISEÑO2.Designer.cs">
       <DependentUpon>DISEÑO2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditarRegCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditarRegCliente.Designer.cs">
+      <DependentUpon>EditarRegCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EditRegSuplidorescs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditRegSuplidorescs.Designer.cs">
+      <DependentUpon>EditRegSuplidorescs.cs</DependentUpon>
     </Compile>
     <Compile Include="Ini-RegCliente.cs">
       <SubType>Form</SubType>
@@ -120,6 +152,24 @@
     <Compile Include="Modificaciones.Designer.cs">
       <DependentUpon>Modificaciones.cs</DependentUpon>
     </Compile>
+    <Compile Include="PedidosAceptadoscs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidosAceptadoscs.Designer.cs">
+      <DependentUpon>PedidosAceptadoscs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidosClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidosClientes.Designer.cs">
+      <DependentUpon>PedidosClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PedidosSuplidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PedidosSuplidor.Designer.cs">
+      <DependentUpon>PedidosSuplidor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistroCliente.cs">
@@ -127,6 +177,24 @@
     </Compile>
     <Compile Include="RegistroCliente.Designer.cs">
       <DependentUpon>RegistroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroC.Designer.cs">
+      <DependentUpon>RegistroC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistroS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistroS.Designer.cs">
+      <DependentUpon>RegistroS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitudV.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SolicitudV.Designer.cs">
+      <DependentUpon>SolicitudV.cs</DependentUpon>
     </Compile>
     <Compile Include="TipoInicio.cs">
       <SubType>Form</SubType>
@@ -149,11 +217,20 @@
     <EmbeddedResource Include="ConsultaCliente1.resx">
       <DependentUpon>ConsultaCliente1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="DesCliente.resx">
+      <DependentUpon>DesCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="DesVehiculo.resx">
       <DependentUpon>DesVehiculo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DISEÑO2.resx">
       <DependentUpon>DISEÑO2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditarRegCliente.resx">
+      <DependentUpon>EditarRegCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditRegSuplidorescs.resx">
+      <DependentUpon>EditRegSuplidorescs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ini-RegCliente.resx">
       <DependentUpon>Ini-RegCliente.cs</DependentUpon>
@@ -166,6 +243,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modificaciones.resx">
       <DependentUpon>Modificaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidosAceptadoscs.resx">
+      <DependentUpon>PedidosAceptadoscs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidosClientes.resx">
+      <DependentUpon>PedidosClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PedidosSuplidor.resx">
+      <DependentUpon>PedidosSuplidor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -180,12 +266,22 @@
     <EmbeddedResource Include="RegistroCliente.resx">
       <DependentUpon>RegistroCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="RegistroC.resx">
+      <DependentUpon>RegistroC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistroS.resx">
+      <DependentUpon>RegistroS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SolicitudV.resx">
+      <DependentUpon>SolicitudV.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TipoInicio.resx">
       <DependentUpon>TipoInicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Vehiculo.resx">
       <DependentUpon>Vehiculo.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="CarStay_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

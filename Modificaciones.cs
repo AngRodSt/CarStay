@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
 namespace CarStay
 {
     public partial class Modificaciones : Form
@@ -28,7 +23,7 @@ namespace CarStay
 
             InitializeComponent();
             Desactivar();
-            ConexionW conexion = new ConexionW();
+            Conexion conexion = new Conexion();
             conexion.conec();
             string cadena = conexion.cadena;
             conn = new MySqlConnection(cadena);
@@ -70,7 +65,7 @@ namespace CarStay
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             conn.Open();
-           
+
             byte[] imageData = null;
             MySqlDataReader reader = null;
             try
@@ -87,13 +82,14 @@ namespace CarStay
                 {
                     PicFoto.Image = Properties.Resources.ImagenPredeterminada;
                 }
-
+                int precio;
                 int codigo;
                 int suplidor;
+                Int32.TryParse(txtPrecio.Text, out precio);
                 Int32.TryParse(txtSup.Text, out suplidor);
                 Int32.TryParse(txtID.Text, out codigo);
                 string cBuscar = "select idvehiculo from vehiculo where idvehiculo= " + codigo + " and idsuplidor= " + suplidor;
-                using (MySqlCommand comando1 = new MySqlCommand(cBuscar, conn)) 
+                using (MySqlCommand comando1 = new MySqlCommand(cBuscar, conn))
                 {
                     reader = comando1.ExecuteReader();
                     if (reader.Read())
@@ -101,7 +97,7 @@ namespace CarStay
                         reader.Close();
                         string cadUpdate = "update vehiculo set Photo=@photo ,Marca=@marca, Modelo=@modelo" +
                             ",Matricula=@matricula,Motor=@motor,Cilintros=@cili,Capacidad=@capacidad,Color=@color,Kilometraje=@Kilom,Dimensiones=@dimensiones," +
-                            "Estado=@estado,Year=@year  where idvehiculo=" + codigo + " and idsuplidor= " + suplidor;
+                            "Estado=@estado,Year=@year, Precio=@precio  where idvehiculo=" + codigo + " and idsuplidor= " + suplidor;
                         using (MySqlCommand comando2 = new MySqlCommand(cadUpdate, conn))
                         {
                             comando2.Parameters.Add("@photo", MySqlDbType.LongBlob).Value = imageData;
@@ -116,6 +112,7 @@ namespace CarStay
                             comando2.Parameters.AddWithValue("@dimensiones", txtDimenc.Text);
                             comando2.Parameters.AddWithValue("@estado", cbEstado.SelectedItem);
                             comando2.Parameters.AddWithValue("@year", txtYear.Text);
+                            comando2.Parameters.AddWithValue("@precio", precio);
 
                             comando2.ExecuteNonQuery();
                             MessageBox.Show("Datos Actualizados Exitosamente");
@@ -125,8 +122,8 @@ namespace CarStay
                     {
                         reader.Close();
                         string Guardar = "insert into vehiculo (idvehiculo,idsuplidor,Photo,Marca," +
-                            "Modelo,Matricula,Motor,Cilintros,Capacidad,Color,Kilometraje,Dimensiones,Estado,Year) " +
-                            "value (@codigo,@suplidor,@photo,@marca,@modelo,@matricula,@motor,@cili,@capacidad,@color,@Kilom,@dimensiones,@estado,@year)";
+                            "Modelo,Matricula,Motor,Cilintros,Capacidad,Color,Kilometraje,Dimensiones,Estado,Year,Precio) " +
+                            "value (@codigo,@suplidor,@photo,@marca,@modelo,@matricula,@motor,@cili,@capacidad,@color,@Kilom,@dimensiones,@estado,@year,@precio)";
                         using (MySqlCommand comando = new MySqlCommand(Guardar, conn))
                         {
 
@@ -145,13 +142,14 @@ namespace CarStay
                             comando.Parameters.AddWithValue("@dimensiones", txtDimenc.Text);
                             comando.Parameters.AddWithValue("@estado", cbEstado.SelectedItem);
                             comando.Parameters.AddWithValue("@year", txtYear.Text);
+                            comando.Parameters.AddWithValue("@precio", precio);
 
                             comando.ExecuteNonQuery();
                             MessageBox.Show("Datos Guardados Exitosamente");
 
                         };
                     }
-                } ; 
+                };
             }
             catch (Exception ex)
             {
@@ -164,11 +162,11 @@ namespace CarStay
             RellenarCB(cbEstado, estado);
             Desactivar();
             conn.Close();
+            txtID.Enabled = true;
 
-            
             cargarDatos();
-            
-            
+
+
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -181,15 +179,16 @@ namespace CarStay
             Vehiculo ver = new Vehiculo(idsuplidor);
             ver.Show();
             this.Close();
-           
+
         }
 
         private void Limpiar()
         {
             txtID.Clear();
+            txtPrecio.Clear();
             cbMarca.Items.Clear();
             txtModelo.Clear();
-            txtColor.Clear();   
+            txtColor.Clear();
             txtKilom.Clear();
             txtDimenc.Clear();
             txtmatricula.Clear();
@@ -204,8 +203,8 @@ namespace CarStay
         }
         private void Desactivar()
         {
-           
-            cbMarca.Enabled=false;
+
+            cbMarca.Enabled = false;
             txtModelo.Enabled = false;
             txtColor.Enabled = false;
             txtKilom.Enabled = false;
@@ -216,7 +215,8 @@ namespace CarStay
             cbCilindros.Enabled = false;
             cbEstado.Enabled = false;
             txtMotor.Enabled = false;
-           
+            txtPrecio.Enabled = false;
+
         }
         private void Activar()
         {
@@ -232,16 +232,21 @@ namespace CarStay
             cbCilindros.Enabled = true;
             cbEstado.Enabled = true;
             txtMotor.Enabled = true;
+            txtPrecio.Enabled = true;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
+
             Activar();
             Limpiar();
             RellenarCB(cbMarca, marca);
             RellenarCB(cbCilindros, cilindros);
             RellenarCB(cbCapacidad, capacidad);
             RellenarCB(cbEstado, estado);
+            int nuevoNumero = ObtenerSiguienteNumero();
+            txtID.Text = nuevoNumero.ToString();
+            txtID.Enabled = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -250,12 +255,13 @@ namespace CarStay
             int suplidor;
             Int32.TryParse(txtSup.Text, out suplidor);
             Int32.TryParse(txtID.Text, out codigo);
+
             conn.Open();
-            string cBuscar = "select Marca,Modelo,Photo,Matricula,Motor,Cilintros,Capacidad,Color,Kilometraje,Dimensiones,Estado,Year from " +
-                "vehiculo where idvehiculo= "+codigo+ " and idsuplidor= "+suplidor ;
-            MySqlCommand comando = new MySqlCommand(cBuscar,conn);
+            string cBuscar = "select Marca,Modelo,Photo,Matricula,Motor,Cilintros,Capacidad,Color,Kilometraje,Dimensiones,Estado,Year,Precio from " +
+                "vehiculo where idvehiculo= " + codigo + " and idsuplidor= " + suplidor;
+            MySqlCommand comando = new MySqlCommand(cBuscar, conn);
             MySqlDataReader reader = comando.ExecuteReader();
-            if(reader.Read())
+            if (reader.Read())
             {
                 byte[] imageData = (byte[])reader["Photo"];
 
@@ -264,7 +270,7 @@ namespace CarStay
                 {
                     Image imagen = Image.FromStream(ms);
 
-                  // Asigna la imagen al PictureBox.
+                    // Asigna la imagen al PictureBox.
                     PicFoto.Image = imagen;
                 }
                 cbMarca.Text = reader["Marca"].ToString();
@@ -273,11 +279,12 @@ namespace CarStay
                 txtMotor.Text = reader["Motor"].ToString();
                 cbCilindros.Text = reader["Cilintros"].ToString();
                 cbCapacidad.Text = reader["Capacidad"].ToString();
-                txtColor.Text= reader["Color"].ToString();
+                txtColor.Text = reader["Color"].ToString();
                 txtKilom.Text = reader["Kilometraje"].ToString();
                 txtDimenc.Text = reader["Dimensiones"].ToString();
                 cbEstado.Text = reader["Estado"].ToString();
-                txtYear.Text= reader["Year"].ToString();
+                txtYear.Text = reader["Year"].ToString();
+                txtPrecio.Text = reader["Precio"].ToString();
             }
             else
             {
@@ -290,15 +297,55 @@ namespace CarStay
             conn.Open();
             int suplidor;
             Int32.TryParse(txtSup.Text, out suplidor);
-            string cMostrar = "select Photo,Marca,Modelo,Matricula,Motor,Cilintros,Capacidad,Color,Kilometraje,Dimensiones,Estado,Year from vehiculo where idsuplidor=" + suplidor;
+            string cMostrar = "select idvehiculo,Photo,Marca,Modelo,Matricula,Motor,Cilintros,Capacidad,Color,Kilometraje,Dimensiones,Estado,Year,Precio from vehiculo where idsuplidor=" + suplidor;
 
             using (MySqlDataAdapter adapter = new MySqlDataAdapter(cMostrar, conn))
             {
+
                 DataSet ds = new DataSet();
                 adapter.Fill(ds, "vehiculo");
                 dgvModif.DataSource = ds.Tables["vehiculo"];
-            } ;
+            };
             conn.Close();
+        }
+
+        private void btnBorrar_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            int vehiculo = Convert.ToInt32(txtID.Text);
+            string delete = "delete vehiculo from vehiculo where idvehiculo=" + vehiculo;
+            MySqlCommand cmd = new MySqlCommand(delete, conn);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Vehiculo eliminado exitosamente");
+            conn.Close();
+            Limpiar();
+            RellenarCB(cbMarca, marca);
+            RellenarCB(cbCilindros, cilindros);
+            RellenarCB(cbCapacidad, capacidad);
+            RellenarCB(cbEstado, estado);
+            txtID.Enabled = true;
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Activar();
+        }
+        private int ObtenerSiguienteNumero()
+        {
+
+            conn.Open();
+
+            string query = "SELECT COALESCE(MAX(idvehiculo), 0) + 1 FROM vehiculo";
+            using (MySqlCommand command = new MySqlCommand(query, conn))
+            {
+
+                object resultado = command.ExecuteScalar();
+                int siguienteNumero = Convert.ToInt32(resultado);
+                conn.Close();
+                return siguienteNumero;
+
+            }
+
         }
     }
 }

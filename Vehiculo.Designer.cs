@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Vehiculo));
             this.btnCatalogo = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAtras = new System.Windows.Forms.Button();
@@ -47,7 +46,7 @@
             this.btnCatalogo.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnCatalogo.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCatalogo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnCatalogo.Location = new System.Drawing.Point(32, 158);
+            this.btnCatalogo.Location = new System.Drawing.Point(31, 223);
             this.btnCatalogo.Margin = new System.Windows.Forms.Padding(5);
             this.btnCatalogo.Name = "btnCatalogo";
             this.btnCatalogo.Size = new System.Drawing.Size(230, 91);
@@ -55,22 +54,8 @@
             this.btnCatalogo.Text = "CATALOGO";
             this.btnCatalogo.UseVisualStyleBackColor = false;
             this.btnCatalogo.Click += new System.EventHandler(this.btnCatalogo_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.button1.Font = new System.Drawing.Font("Myanmar Text", 9.818182F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(32, 551);
-            this.button1.Margin = new System.Windows.Forms.Padding(5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(230, 91);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "MANTENIMIENTO";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnCatalogo.MouseEnter += new System.EventHandler(this.btnCatalogo_MouseEnter);
+            this.btnCatalogo.MouseLeave += new System.EventHandler(this.btnCatalogo_MouseLeave);
             // 
             // button2
             // 
@@ -80,13 +65,16 @@
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button2.Location = new System.Drawing.Point(32, 422);
+            this.button2.Location = new System.Drawing.Point(31, 487);
             this.button2.Margin = new System.Windows.Forms.Padding(5);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(230, 91);
             this.button2.TabIndex = 4;
             this.button2.Text = "EN RENTA";
             this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button2.MouseEnter += new System.EventHandler(this.button2_MouseEnter);
+            this.button2.MouseLeave += new System.EventHandler(this.button2_MouseLeave);
             // 
             // btnModificar
             // 
@@ -96,7 +84,7 @@
             this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnModificar.Font = new System.Drawing.Font("Myanmar Text", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btnModificar.Location = new System.Drawing.Point(32, 291);
+            this.btnModificar.Location = new System.Drawing.Point(31, 356);
             this.btnModificar.Margin = new System.Windows.Forms.Padding(5);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(230, 91);
@@ -104,6 +92,8 @@
             this.btnModificar.Text = "MODIFICAR";
             this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnModificar.MouseEnter += new System.EventHandler(this.btnModificar_MouseEnter);
+            this.btnModificar.MouseLeave += new System.EventHandler(this.btnModificar_MouseLeave);
             // 
             // btnAtras
             // 
@@ -121,6 +111,8 @@
             this.btnAtras.Text = "ATRAS";
             this.btnAtras.UseVisualStyleBackColor = false;
             this.btnAtras.Click += new System.EventHandler(this.button4_Click);
+            this.btnAtras.MouseEnter += new System.EventHandler(this.btnAtras_MouseEnter);
+            this.btnAtras.MouseLeave += new System.EventHandler(this.btnAtras_MouseLeave);
             // 
             // panel1
             // 
@@ -128,7 +120,6 @@
             this.panel1.Controls.Add(this.btnAtras);
             this.panel1.Controls.Add(this.btnCatalogo);
             this.panel1.Controls.Add(this.btnModificar);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button2);
             this.panel1.Location = new System.Drawing.Point(1277, 38);
             this.panel1.Margin = new System.Windows.Forms.Padding(5);
@@ -171,7 +162,6 @@
         #endregion
 
         private System.Windows.Forms.Button btnCatalogo;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAtras;

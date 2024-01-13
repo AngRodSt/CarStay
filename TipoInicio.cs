@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarStay
@@ -31,7 +25,7 @@ namespace CarStay
         //FUNCION PARA QUE LOS BOTONES CAMBIEN DE COLOR AL PASARLE EL MOUSE POR ENCIMA
         public void Marcar(Button button)
         {
-            button.BackColor = Color.LightCoral;
+            button.BackColor = Color.Navy;
             button.ForeColor = System.Drawing.Color.White;
             button.BackgroundImage = null;
         }
@@ -64,7 +58,7 @@ namespace CarStay
         }
 
         private void btnSalir_MouseEnter(object sender, EventArgs e)
-        {   
+        {
             Marcar(btnSalir);
 
         }
@@ -81,5 +75,5 @@ namespace CarStay
             this.Hide();
         }
     }
-    }
+}
 

@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI;
 
 namespace CarStay
 {
@@ -18,17 +11,17 @@ namespace CarStay
         public LoginProv()
         {
             InitializeComponent();
-            ConexionW conect = new ConexionW();
+            Conexion conect = new Conexion();
             conect.conec();
             string cadena = conect.cadena;
             conn = new MySqlConnection(cadena);
-            
+
         }
         public int idSuplidor;
-      
+
         public void Marcar(Button button)
         {
-            button.BackColor = Color.LightCoral;
+            button.BackColor = Color.Navy;
             button.ForeColor = System.Drawing.Color.White;
             button.BackgroundImage = null;
         }
@@ -44,36 +37,35 @@ namespace CarStay
         {
             this.Close();
         }
-        
+
         private void button2_Click(object sender, EventArgs e)
         {
             conn.Open();
             string Validar = "Select idSuplidor from suplidores where Usuario=@Usuario and Contraseña=@Contra";
             using (MySqlCommand cValidar = new MySqlCommand(Validar, conn))
             {
-                cValidar.Parameters.AddWithValue("@Usuario",txtUs.Text);
+                cValidar.Parameters.AddWithValue("@Usuario", txtUs.Text);
                 cValidar.Parameters.AddWithValue("@Contra", txtCont.Text);
                 object resultado = cValidar.ExecuteScalar();
 
-               
+
                 if (resultado != null)
                 {
                     idSuplidor = Convert.ToInt32(resultado);
-                    Modificaciones olo = new Modificaciones(idSuplidor);
-                   //olo.Show();
+
                     CARSTAY menuP = new CARSTAY(idSuplidor);
-                   menuP.Show();
+                    menuP.Show();
                     this.Hide();
-                    
+
                 }
                 else
                 {
                     MessageBox.Show("Usuario no encontrado");
                 }
-            } ;
-            
+            };
+
             conn.Close();
-           
+
         }
 
         private void btnSalir_MouseEnter(object sender, EventArgs e)
@@ -128,7 +120,9 @@ namespace CarStay
 
         private void btnAtras_Click(object sender, EventArgs e)
         {
-
+            Login menu = new Login();
+            menu.Show();
+            this.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)

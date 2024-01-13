@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarStay
@@ -19,13 +13,13 @@ namespace CarStay
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-           RegistroCliente cliente = new RegistroCliente();
+            RegistroCliente cliente = new RegistroCliente();
             cliente.Show();
             this.Hide();
         }
         public void Marcar(Button button)
         {
-            button.BackColor = Color.LightCoral;
+            button.BackColor = Color.Navy;
             button.ForeColor = System.Drawing.Color.White;
             button.BackgroundImage = null;
         }
@@ -73,6 +67,13 @@ namespace CarStay
             this.Hide();
             TipoInicio menu = new TipoInicio();
             menu.Show();
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            RegistroC Registro = new RegistroC();
+            Registro.Show();
+            this.Hide();
         }
     }
 }
