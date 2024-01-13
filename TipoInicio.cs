@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarStay
@@ -31,7 +25,7 @@ namespace CarStay
         //FUNCION PARA QUE LOS BOTONES CAMBIEN DE COLOR AL PASARLE EL MOUSE POR ENCIMA
         public void Marcar(Button button)
         {
-            button.BackColor = Color.LightCoral;
+            button.BackColor = Color.Navy;
             button.ForeColor = System.Drawing.Color.White;
             button.BackgroundImage = null;
         }
@@ -40,7 +34,7 @@ namespace CarStay
         {
             button.BackColor = SystemColors.Control;
             button.ForeColor = System.Drawing.Color.White;
-            button.BackgroundImage = Image.FromFile(@"C:\Users\AngRod\source\repos\CarStay\imagenes\6222603.jpg");
+            button.BackgroundImage = Properties.Resources._6222603;
             button.BackgroundImageLayout = ImageLayout.Stretch;
         }
         private void btnProvedor_MouseEnter(object sender, EventArgs e)
@@ -64,7 +58,7 @@ namespace CarStay
         }
 
         private void btnSalir_MouseEnter(object sender, EventArgs e)
-        {   
+        {
             Marcar(btnSalir);
 
         }
@@ -73,6 +67,13 @@ namespace CarStay
         {
             Desmarcar(btnSalir);
         }
+
+        private void btnCLiente_Click(object sender, EventArgs e)
+        {
+            Ini_RegCliente cliente = new Ini_RegCliente();
+            cliente.Show();
+            this.Hide();
+        }
     }
-    }
+}
 

@@ -1,13 +1,8 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarStay
@@ -38,14 +33,14 @@ namespace CarStay
         private void MostrarBotton()
         {
             conn.Open();
-            foreach(Control item in FLP1.Controls)
+            foreach (Control item in FLP1.Controls)
             {
                 FLP1.Controls.Remove(item);
             }
             FLP1.Controls.Clear();
             int suplidor;
             Int32.TryParse(txtSup.Text, out suplidor);
-           
+
             string cMostrar = "select * from vehiculo where idsuplidor=" + suplidor;
             MySqlDataAdapter da = new MySqlDataAdapter(cMostrar, conn);
             DataSet ds = new DataSet();
@@ -54,7 +49,7 @@ namespace CarStay
 
             if (ds.Tables[0].Rows.Count > 0)
             {
-                foreach(DataRow fila in ds.Tables[0].Rows)
+                foreach (DataRow fila in ds.Tables[0].Rows)
                 {
                     Mybutton = new Button();
                     Font myfont = new Font("Myanmar Text", 10, FontStyle.Bold);
@@ -79,25 +74,25 @@ namespace CarStay
 
                     Mybutton.Click += btn_done_clicked;
                 }
-                
-                
+
+
             }
             conn.Close();
         }
         private void btn_done_clicked(object sender, EventArgs e)
         {
             conn.Open();
-            int automovilID= Convert.ToInt32(((Button)sender).Tag);
+            int automovilID = Convert.ToInt32(((Button)sender).Tag);
 
             string cadena = "select Marca, Modelo, Photo, Matricula, Motor, Cilintros, Capacidad, Color, Kilometraje, Dimensiones, " +
-                "Estado, Year from vehiculo where idvehiculo = " + automovilID;
+                "Estado, Year,Precio from vehiculo where idvehiculo = " + automovilID;
 
             MySqlCommand comando = new MySqlCommand(cadena, conn);
             MySqlDataReader reader = comando.ExecuteReader();
             if (reader.Read())
             {
 
-                
+
                 txtMarca.Text = reader["Marca"].ToString();
                 txtModelo.Text = reader["Modelo"].ToString();
                 txtMatricula.Text = reader["Matricula"].ToString();
@@ -109,21 +104,22 @@ namespace CarStay
                 txtDimensiones.Text = reader["Dimensiones"].ToString();
                 txtEstado.Text = reader["Estado"].ToString();
                 txtYear.Text = reader["Year"].ToString();
+                txtPrecio.Text = reader["Precio"].ToString();
             }
             else
             {
                 MessageBox.Show("Codigo no encontrado");
             }
             conn.Close();
-           
+
         }
 
 
-    
+
         private void Catalogo_Load(object sender, EventArgs e)
         {
             MostrarBotton();
-       
+
         }
 
         private void btnAtras_Click(object sender, EventArgs e)

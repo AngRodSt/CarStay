@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CarStay
@@ -18,7 +12,7 @@ namespace CarStay
         }
         public void Marcar(Button button)
         {
-            button.BackColor = Color.LightCoral;
+            button.BackColor = Color.Navy;
             button.ForeColor = System.Drawing.Color.White;
             button.BackgroundImage = null;
         }
@@ -27,7 +21,7 @@ namespace CarStay
         {
             button.BackColor = SystemColors.Control;
             button.ForeColor = System.Drawing.Color.White;
-            button.BackgroundImage = Image.FromFile(@"C:\Users\AngRod\source\repos\CarStay\imagenes\6222603.jpg");
+            button.BackgroundImage = Properties.Resources._6222603;
             button.BackgroundImageLayout = ImageLayout.Stretch;
         }
         private void button1_Click(object sender, EventArgs e)
@@ -38,13 +32,13 @@ namespace CarStay
         private void button1_Click_1(object sender, EventArgs e)
         {
             this.Close();
-            TipoInicio inicio = new TipoInicio();   
+            TipoInicio inicio = new TipoInicio();
             inicio.Show();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
-            LoginProv loginProv = new LoginProv();      
+            LoginProv loginProv = new LoginProv();
             loginProv.Show();
             this.Close();
         }
@@ -77,6 +71,18 @@ namespace CarStay
         private void btnRegistrar_MouseLeave(object sender, EventArgs e)
         {
             Desmarcar(btnRegistrar);
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRegistrar_Click(object sender, EventArgs e)
+        {
+            RegistroS Registro = new RegistroS();
+            Registro.Show();
+            this.Hide();
         }
     }
 }

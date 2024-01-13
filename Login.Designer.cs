@@ -46,6 +46,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(637, 471);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // btnIniciar
             // 
@@ -100,6 +101,7 @@
             this.btnRegistrar.TabIndex = 9;
             this.btnRegistrar.Text = "REGISTRARTE";
             this.btnRegistrar.UseVisualStyleBackColor = false;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             this.btnRegistrar.MouseEnter += new System.EventHandler(this.btnRegistrar_MouseEnter);
             this.btnRegistrar.MouseLeave += new System.EventHandler(this.btnRegistrar_MouseLeave);
             // 
